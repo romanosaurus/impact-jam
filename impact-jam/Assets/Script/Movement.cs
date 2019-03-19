@@ -45,23 +45,26 @@ public class Movement : MonoBehaviour
     void Update()
     {
         // Handle press on D key
-        if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.D))
         {
-            rb.velocity = new Vector2(speed * Time.deltaTime, rb.velocity.y);
+            if (!Input.GetKey(KeyCode.LeftShift))
+            {
+                rb.velocity = new Vector2(speed * Time.deltaTime, rb.velocity.y);
+            } else
+            {
+                rb.velocity = new Vector2((speed + speedSprint) * Time.deltaTime, rb.velocity.y);
+            }
         }
         // Handle press on Q key
-        if (Input.GetKey(KeyCode.Q) && !Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.Q))
         {
-            rb.velocity = new Vector2(-speed * Time.deltaTime, rb.velocity.y);
-        }
-        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.LeftShift))
-        {
-            rb.velocity = new Vector2((speed + speedSprint) * Time.deltaTime, rb.velocity.y);
-        }
-        // Handle press on Q key
-        if (Input.GetKey(KeyCode.Q) && Input.GetKey(KeyCode.LeftShift))
-        {
-            rb.velocity = new Vector2(-((speed + speedSprint) * Time.deltaTime), rb.velocity.y);
+            if (!Input.GetKey(KeyCode.LeftShift))
+            {
+                rb.velocity = new Vector2(-speed * Time.deltaTime, rb.velocity.y);
+            } else
+            {
+                rb.velocity = new Vector2(-((speed + speedSprint) * Time.deltaTime), rb.velocity.y);
+            }
         }
         // Handle press on Space key
         if (Input.GetKey(KeyCode.Space) && Grounded)
