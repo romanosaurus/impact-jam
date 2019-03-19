@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed;
+    public float speedSprint;
     public float jumpForce;
 
     private Rigidbody2D rb;
@@ -44,19 +45,28 @@ public class Movement : MonoBehaviour
     void Update()
     {
         // Handle press on D key
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.LeftShift))
         {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
+            rb.velocity = new Vector2(speed * Time.deltaTime, rb.velocity.y);
         }
         // Handle press on Q key
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q) && !Input.GetKey(KeyCode.LeftShift))
         {
-            rb.velocity = new Vector2(-speed, rb.velocity.y);
+            rb.velocity = new Vector2(-speed * Time.deltaTime, rb.velocity.y);
+        }
+        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.LeftShift))
+        {
+            rb.velocity = new Vector2((speed + speedSprint) * Time.deltaTime, rb.velocity.y);
+        }
+        // Handle press on Q key
+        if (Input.GetKey(KeyCode.Q) && Input.GetKey(KeyCode.LeftShift))
+        {
+            rb.velocity = new Vector2(-((speed + speedSprint) * Time.deltaTime), rb.velocity.y);
         }
         // Handle press on Space key
         if (Input.GetKey(KeyCode.Space) && Grounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce * Time.deltaTime);
         }
     }
 }
