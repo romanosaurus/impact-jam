@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public GameObject gm;
+    public Canvas canvas;
     private Rigidbody2D rb;
     private Properties prop;
 
@@ -35,6 +36,14 @@ public class InputManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && Grounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, prop.jumpForce * Time.deltaTime);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (canvas.enabled)
+                canvas.enabled = false;
+            else
+                canvas.enabled = true;
         }
     }
 }
