@@ -31,5 +31,10 @@ public class InputManager : MonoBehaviour
             else
                 rb.velocity = new Vector2(-((prop.speed + prop.speedSprint) * Time.deltaTime), rb.velocity.y);
         }
+        // Handle press on Space key
+        if (Input.GetKey(KeyCode.Space) && Grounded)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, prop.jumpForce * Time.deltaTime);
+        }
     }
 }
