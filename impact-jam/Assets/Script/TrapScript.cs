@@ -15,12 +15,14 @@ public class TrapScript : MonoBehaviour
     private bool isTrapped;
     private bool alreadyTrapped;
     private Scene m_Scene;
+    private bool isClosed;
     // Start is called before the first frame update
     void Start()
     {
         isTrapped = false;
         alreadyTrapped = false;
         sinceTrapped = 0;
+        isClosed = false;
     }
 
     // Update is called once per frame
@@ -41,9 +43,11 @@ public class TrapScript : MonoBehaviour
             sinceTrapped = 0;
             thirdState.SetActive(false);
             firstState.SetActive(true);
+            isClosed = false;
         }
-        if (sinceTrapped >= 0.42)
+        if (sinceTrapped >= 0.42 && isClosed == false)
         {
+            isClosed = true;
             secondState.SetActive(false);
             thirdState.SetActive(true);
             if (isTrapped)

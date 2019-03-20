@@ -8,8 +8,6 @@ public class Properties : MonoBehaviour
     public float speed;
     public float speedSprint;
     public float jumpForce;
-    [SerializeField]
-    private GameObject Plateform;
     private Scene m_Scene;
 
     void Update()
