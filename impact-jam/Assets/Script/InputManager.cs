@@ -6,6 +6,7 @@ public class InputManager : MonoBehaviour
 {
     public GameObject gm;
     public Canvas canvas;
+    public Animator animator;
     private Rigidbody2D rb;
     private Properties prop;
 
@@ -18,8 +19,11 @@ public class InputManager : MonoBehaviour
         prop = gm.GetComponent<Properties>();
         bool Grounded = CheckGround.Grounded;
         // Handle press on D key
+        animator.SetFloat("Speed", (rb.velocity.x < 0) ? -rb.velocity.x : rb.velocity.x);
+        Debug.Log(rb.velocity.x);
         if (Input.GetKey(KeyCode.D))
         {
+            gm.transform.localScale = new Vector2(1, gm.transform.localScale.y);
             if (!Input.GetKey(KeyCode.LeftShift))
                 rb.velocity = new Vector2(prop.speed * Time.deltaTime, rb.velocity.y);
             else
@@ -27,6 +31,7 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Q))
         {
+            gm.transform.localScale = new Vector2(-1, gm.transform.localScale.y);
             if (!Input.GetKey(KeyCode.LeftShift))
                 rb.velocity = new Vector2(-prop.speed * Time.deltaTime, rb.velocity.y);
             else
