@@ -15,7 +15,8 @@ public class Properties : MonoBehaviour
     void Update()
     {
         m_Scene = SceneManager.GetActiveScene();
-        if (transform.position.y < Plateform.transform.position.y - 4)
+
+        if (transform.position.y < -10)
             reloadScene(m_Scene.name);
     }
 
