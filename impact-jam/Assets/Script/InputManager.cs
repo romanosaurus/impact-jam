@@ -20,7 +20,7 @@ public class InputManager : MonoBehaviour
         bool Grounded = CheckGround.Grounded;
         // Handle press on D key
         animator.SetFloat("Speed", (rb.velocity.x < 0) ? -rb.velocity.x : rb.velocity.x);
-        Debug.Log(rb.velocity.x);
+
         if (Input.GetKey(KeyCode.D))
         {
             gm.transform.localScale = new Vector2(1, gm.transform.localScale.y);
