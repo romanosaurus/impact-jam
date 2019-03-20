@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScene.unity
     guid: 21361626bfc224c7c8d4ec9ed1081d96
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: b6f3eb8530d9b4c04b7d18ef9001eca6
+  - enabled: 1
+    path: Assets/Scenes/MenuCredits.unity
+    guid: 7cce8b2c6efe2eb47ad37689811bab83
+  - enabled: 1
+    path: Assets/Scenes/PauseMenu.unity
+    guid: 20b0bad6151c5448cad3516a6d5789f5
   m_configObjects: {}
