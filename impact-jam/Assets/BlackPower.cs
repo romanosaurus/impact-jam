@@ -6,7 +6,7 @@ public class BlackPower : APower
 {
     private bool canActive;
     private bool hangingSomeone;
-    private Collision2D collide;
+    private GameObject holding;
 
     private void Start()
     {
@@ -16,16 +16,16 @@ public class BlackPower : APower
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !hangingSomeone)
         {
             canActive = true;
-            collide = collision;
+            holding = collision.gameObject;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !hangingSomeone)
         {
             canActive = false;
         }
@@ -33,16 +33,20 @@ public class BlackPower : APower
 
     public override void launchPower()
     {
+        Debug.Log("launchPower");
         if (hangingSomeone)
         {
             hangingSomeone = false;
-            collide.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            collide.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * 20, GetComponent<Rigidbody2D>().velocity.y);
+            holding.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            holding.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(transform.localScale.x * 10, GetComponent<Rigidbody2D>().velocity.y);
+            holding.gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
+            holding = null;
         }
         if (canActive)
         {
-            collide.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-            collide.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            Debug.Log("HOLDING" + holding.gameObject.name);
+            holding.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+            holding.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             hangingSomeone = true;
             canActive = false;
         }
@@ -54,9 +58,10 @@ public class BlackPower : APower
 
     private void Update()
     {
-        if (hangingSomeone)
+        //Debug.Log(holding.gameObject.name);
+        if (hangingSomeone && holding != null)
         {
-            collide.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+            holding.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
         }
     }
 }
