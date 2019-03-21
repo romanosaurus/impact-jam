@@ -10,8 +10,9 @@ public class CameraFollowing : MonoBehaviour
     // Use this for initialization
     private void Update()
     {
+        Vector3 mousePosition = new Vector3(Input.mousePosition.x / 1000, Input.mousePosition.y / 1080, Input.mousePosition.z);
         Vector3 newPosition = player.transform.position;
         newPosition.z = -10;
-        transform.position = Vector3.Slerp(transform.position, newPosition, FollowSpeed * Time.deltaTime);
+        transform.position = Vector3.Slerp(transform.position, newPosition + mousePosition, FollowSpeed * Time.deltaTime);
     }
 }
