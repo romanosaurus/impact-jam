@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FinishLine : MonoBehaviour
 {
+    public Canvas endScreen;
     private int playerIn = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,6 +23,9 @@ public class FinishLine : MonoBehaviour
     private void Update()
     {
         if (playerIn == 4)
-            Debug.Log("fini");
+        {
+            endScreen.enabled = true;
+            endScreen.GetComponent<Animator>().enabled = true;
+        }
     }
 }
