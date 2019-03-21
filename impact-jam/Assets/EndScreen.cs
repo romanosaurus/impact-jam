@@ -19,7 +19,6 @@ public class EndScreen : MonoBehaviour
     {
         if (GetComponent<Canvas>().enabled == false)
         {
-            Debug.Log("lol");
             timeTextInEndScreen.text = time.text;
             updated = true;
         }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7637944197465718091}
   - component: {fileID: 4141471085272649229}
   - component: {fileID: 728529070802596341}
+  - component: {fileID: 1106720907408961723}
   m_Layer: 0
   m_Name: BigBoy
   m_TagString: Player
@@ -177,3 +178,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1106720907408961723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7637944197465718088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e764a7437dbe4a469afe6cd8287c506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpImprove: 100

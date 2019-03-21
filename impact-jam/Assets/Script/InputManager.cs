@@ -23,6 +23,7 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
+            gm.GetComponent<APower>().stopPower();
             gm.transform.localScale = new Vector2(1, gm.transform.localScale.y);
             if (!Input.GetKey(KeyCode.LeftShift))
                 rb.velocity = new Vector2(prop.speed * Time.deltaTime, rb.velocity.y);
@@ -31,6 +32,7 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Q))
         {
+            gm.GetComponent<APower>().stopPower();
             gm.transform.localScale = new Vector2(-1, gm.transform.localScale.y);
             if (!Input.GetKey(KeyCode.LeftShift))
                 rb.velocity = new Vector2(-prop.speed * Time.deltaTime, rb.velocity.y);
@@ -40,6 +42,7 @@ public class InputManager : MonoBehaviour
         // Handle press on Space key
         if (Input.GetKey(KeyCode.Space) && Grounded)
         {
+            gm.GetComponent<APower>().stopPower();
             rb.velocity = new Vector2(rb.velocity.x, prop.jumpForce * Time.deltaTime);
         }
 
@@ -49,6 +52,10 @@ public class InputManager : MonoBehaviour
                 canvas.enabled = false;
             else
                 canvas.enabled = true;
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            gm.GetComponent<APower>().launchPower();
         }
     }
 }
