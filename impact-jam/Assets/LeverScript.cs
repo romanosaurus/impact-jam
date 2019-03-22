@@ -10,10 +10,11 @@ public class LeverScript : MonoBehaviour
     private GameObject secondState;
     [SerializeField]
     private GameObject bridge;
+    private bool onlyOne;
     // Start is called before the first frame update
     void Start()
     {
-        
+        onlyOne = true;
     }
 
     // Update is called once per frame
@@ -26,6 +27,13 @@ public class LeverScript : MonoBehaviour
     {
         firstState.SetActive(false);
         secondState.SetActive(true);
-        bridge.SetActive(true);
+        if (onlyOne)
+        {
+            if (!bridge.activeSelf)
+                bridge.SetActive(true);
+            else
+                bridge.SetActive(false);
+            onlyOne = false;
+        }
     }
 }

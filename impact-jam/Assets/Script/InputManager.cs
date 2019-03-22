@@ -44,6 +44,7 @@ public class InputManager : MonoBehaviour
         {
             gm.GetComponent<APower>().stopPower();
             rb.velocity = new Vector2(rb.velocity.x, prop.jumpForce * Time.deltaTime);
+            Grounded = false;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
