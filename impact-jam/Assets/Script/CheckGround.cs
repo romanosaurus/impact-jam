@@ -22,10 +22,10 @@ public class CheckGround : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    /*private void OnCollisionStay(Collision collision)
     {
         Grounded = false;
-    }
+    }*/
 
     void OnCollisionExit2D(Collision2D collider)
     {
