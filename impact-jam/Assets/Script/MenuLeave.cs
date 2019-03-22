@@ -6,10 +6,8 @@ public class MenuLeave : MonoBehaviour
 
     public void Quit()
     {
-#if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#else
+//        for (int i = 0; i != 1000000000; i++);
         Application.Quit ();
-#endif
     }
 }
