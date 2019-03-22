@@ -6,16 +6,33 @@ public class CheckGround : MonoBehaviour
 {
     public static bool Grounded;
     private bool inWater = false;
+    public static int jumpMax;
+    private float DisstanceToTheGround;
+
+    private void Start()
+    {
+        Grounded = true;
+    }
 
     void OnCollisionEnter2D(Collision2D collider)
     {
-        Grounded = true;
+        if (collider.gameObject.tag == "Platform" || collider.gameObject.tag == "Player")
+        {
+            Grounded = true;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        Grounded = false;
     }
 
     void OnCollisionExit2D(Collision2D collider)
     {
         if (!inWater)
+        {
             Grounded = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,4 +55,8 @@ public class CheckGround : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        Debug.Log(Grounded);
+    }
 }

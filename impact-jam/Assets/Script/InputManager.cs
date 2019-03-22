@@ -18,6 +18,7 @@ public class InputManager : MonoBehaviour
         rb = gm.GetComponent<Rigidbody2D>();
         prop = gm.GetComponent<Properties>();
         bool Grounded = CheckGround.Grounded;
+        int jumpMax = CheckGround.jumpMax;
         // Handle press on D key
         animator.SetFloat("Speed", (rb.velocity.x < 0) ? -rb.velocity.x : rb.velocity.x);
 
