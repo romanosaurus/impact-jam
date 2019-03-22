@@ -15,12 +15,27 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScene.unity
     guid: 21361626bfc224c7c8d4ec9ed1081d96
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: b6f3eb8530d9b4c04b7d18ef9001eca6
-  - enabled: 1
     path: Assets/Scenes/MenuCredits.unity
     guid: 7cce8b2c6efe2eb47ad37689811bab83
   - enabled: 1
     path: Assets/Scenes/PauseMenu.unity
     guid: 20b0bad6151c5448cad3516a6d5789f5
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 66e9a8515d5035d4abb6ab1c55e82aad
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: b6f3eb8530d9b4c04b7d18ef9001eca6
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: dc3fd035bbbb8c14a9a2b15efe9cf4c4
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: d37eddda862dd4d7e96a1f4926375d95
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 57be80046d0df7b43bb51664dd57698c
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
+    guid: 85bf7808de04bfc439fc7806fd0a1f4b
   m_configObjects: {}
